@@ -19,7 +19,7 @@ public class Stacks {
 			if (i == stack) {
 				continue;
 			}
-			if (starts[i] == ends[stack]) {
+			if (starts[i] == ends[stack] || (stack == ends.length - 1 && ends[stack] == stacks.length)) {
 				this.ends[stack]--;
 				this.enlargeStack();
 				add(stack, data);
@@ -91,12 +91,19 @@ public class Stacks {
 		}
 		builder.append(stacks[stacks.length - 1]);
 		builder.append("]");
-		builder.append("\n" + "starts[2] = " + starts[1]);
 		return builder.toString();
 	}
 	public static void main(String[] args) {
 		Stacks stack = new Stacks(2);
 		stack.add(0, 1);
+		System.out.println(stack);
+		stack.add(2, 3);
+		System.out.println(stack);
+		stack.add(2, 3);
+		System.out.println(stack);
+		stack.add(2, 3);
+		System.out.println(stack);
+		stack.add(2, 3);
 		System.out.println(stack);
 		stack.add(0, 4);
 		System.out.println(stack);
